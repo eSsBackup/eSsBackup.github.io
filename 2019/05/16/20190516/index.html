@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is use utf-8, while utf-8 is not the default character set. Software on Microsoft Windows, use GB series character set to enc">
+<meta name="description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is utf-8, while utf-8 is not the default character set on Windows. Software on Microsoft Windows, use GB series character set">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Chinese character encoding with Chinese government standard">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/20190516/index.html">
 <meta property="og:site_name" content="Esmidth&#39;s Manual">
-<meta property="og:description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is use utf-8, while utf-8 is not the default character set. Software on Microsoft Windows, use GB series character set to enc">
+<meta property="og:description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is utf-8, while utf-8 is not the default character set on Windows. Software on Microsoft Windows, use GB series character set">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-16T07:15:06.889Z">
+<meta property="og:updated_time" content="2019-05-16T07:25:30.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Chinese character encoding with Chinese government standard">
-<meta name="twitter:description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is use utf-8, while utf-8 is not the default character set. Software on Microsoft Windows, use GB series character set to enc">
+<meta name="twitter:description" content="DescriptionOn linux platform, the best practice of Python Chinese encoding is utf-8, while utf-8 is not the default character set on Windows. Software on Microsoft Windows, use GB series character set">
 
 
 
@@ -299,14 +299,14 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>On linux platform, the best practice of Python Chinese encoding is use utf-8, while utf-8 is not the default character set. Software on Microsoft Windows, use GB series character set to encoding and decoding. In order to output files opened on Windows painlessly, I try to find a proper character set that Python can easily use.</p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>On linux platform, the best practice of Python Chinese encoding is utf-8, while utf-8 is not the default character set on Windows. Software on Microsoft Windows, use GB series character set to encoding and decoding. In order to output files opened on Windows painlessly, I try to find a proper character set that Python can easily use.</p>
 <h2 id="Evolution-and-Derivation"><a href="#Evolution-and-Derivation" class="headerlink" title="Evolution and Derivation"></a>Evolution and Derivation</h2><p>There are three common used GB character sets.</p>
 <ul>
 <li>GB2312 (GB2312-80)<br>  GB2312, originally published on May 1st 1981, containing 6763 common used Chinese characters, can satisfy the demand of 99.75% daily-used Chinese characters. But for the rare-used characters, it can do nothing but raise a error on Python which says ‘gb2312’ codec can’t encode character u’xxx’ in position xx: illegal multibyte sequence or something like this.</li>
 <li>GBK<br>  GBK means GB Kuozhan(extension in English), containing 21886 characters. On 1993, Unicode 1.1 was published, containing 20902 Chinese characters used by China Mainland, Taiwan, Japan and Korea. And China design a Unicode 1.1 equivalent GB 13000.1-93. Because GB 2312-80 merely contains 6763 characters, Microsoft use the codec space left in GB 2312-80 encoding all the Chinese characters in GB 13000.1-93. The new extended GB2312-80, which is called GBK by Microsoft, originally published alongside Windows 95 Simplified Chinese Version. GBK contains characters exactly the same as GB 13000.1-93, but they are encoded in different ways. GBK is compatible with GB2312, while GB 13000.1-93 is a character set equivalent like Unicode 1.1, with several implement way such as UTF8, UTF16LE.</li>
 <li>GB 18030<br>  GB 18030 is a Chinese government standard character set, superseding GB2312. GB 18030 is a unicode based character set, compatible with legacy encodings including GB2312, GBK. GB 18030 contains 70244 Chinese characters, originally published on November 8, 2005, officially required for all software products sold in the PRC.</li>
 </ul>
-<h2 id="Python-Best-Encoding-for-MS-Windows-Software-Compatibility"><a href="#Python-Best-Encoding-for-MS-Windows-Software-Compatibility" class="headerlink" title="Python Best Encoding for MS Windows Software Compatibility"></a>Python Best Encoding for MS Windows Software Compatibility</h2><p>Utf-8 is works perfect on Linux, while the same plain text file often encounter a codec error on MS Windows Software whose default codec can’t be modified. So for the files need to be transferred between Linux and Windows, the best codec is GB 18030.</p>
+<h2 id="Python-best-encoding-for-MS-Windows-software-compatibility"><a href="#Python-best-encoding-for-MS-Windows-software-compatibility" class="headerlink" title="Python best encoding for MS Windows software compatibility"></a>Python best encoding for MS Windows software compatibility</h2><p>Utf-8 works perfect on Linux, while the same plain text file often encounter a codec error on MS Windows Software whose default codec can’t be modified. So for the files need to be transferred between Linux and Windows, the best codec is GB 18030.</p>
 <p>For Python io function, add encoding parameter can use different codec. Here comes the example.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(file_name, encoding=<span class="string">'gb18030'</span>, mode=<span class="string">'w+'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(content)</span><br></pre></td></tr></table></figure>
       
@@ -454,7 +454,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evolution-and-Derivation"><span class="nav-number">2.</span> <span class="nav-text">Evolution and Derivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Best-Encoding-for-MS-Windows-Software-Compatibility"><span class="nav-number">3.</span> <span class="nav-text">Python Best Encoding for MS Windows Software Compatibility</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evolution-and-Derivation"><span class="nav-number">2.</span> <span class="nav-text">Evolution and Derivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-best-encoding-for-MS-Windows-software-compatibility"><span class="nav-number">3.</span> <span class="nav-text">Python best encoding for MS Windows software compatibility</span></a></li></ol></div>
             
 
           </div>
